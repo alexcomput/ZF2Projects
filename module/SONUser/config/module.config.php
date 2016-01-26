@@ -15,6 +15,17 @@ return [
                         'action' => 'register',
                     ]
                 ]
+            ],
+            'sonuser-listar' => [
+                'type' => 'Literal',
+                'options' => [
+                    'route' => '/listar',
+                    'defaults' => [
+                        '__NAMESPACE__' => 'SONUser\Controller',
+                        'controller' => 'Index',
+                        'action' => 'listar',
+                    ]
+                ]
             ]
         ]
     ],
@@ -49,11 +60,11 @@ return [
             'orm_default' => [
                 'drivers' => [
                     __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-                ],
-            ],
+                ]
+            ]
         ],
         'data-fixture' => [
             __NAMESPACE__ . '_fixture' => __DIR__ . '/../src/' . __NAMESPACE__ . '/Fixture',
         ],
-    ],
+    ]
 ];

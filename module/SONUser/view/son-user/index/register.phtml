@@ -16,7 +16,10 @@
     <input type="password" name="password"> 
     <br><br>
     <input type="submit" value="Adicionar"> 
+
 </form> 
+<a href="<?php echo $this->url('sonuser-listar', array('controller' => 'index', 'action' => 'listar')); ?>">Listar Funcionario</a> 
+
 <br><br>
 <?php echo $this->resp; ?>
 

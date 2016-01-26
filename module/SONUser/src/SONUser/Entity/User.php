@@ -12,6 +12,7 @@ use Zend\Stdlib\Hydrator;
  * 
  * @ORM\Table(name="sonuser_user")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class User {
 
@@ -21,11 +22,11 @@ class User {
      * @ORM\Id
      * @ORM\GeneratedValue("AUTO")
      * @ORM\Column(type="integer", name = "id")
-     * @ORM\HasLifecycleCallbacks
+     * 
      */
     private $id;
 
-    /*
+    /**
      * @var string
      * 
      * @ORM\Column(type="string", length=255, name = "nome" , nullable = false)
@@ -53,6 +54,14 @@ class User {
      */
     private $salt;
 
+
+    /**
+     * @var boolean
+     * 
+     * @ORM\Column(name= "active " , type="boolean", nullable = false)
+     */
+    private $active;
+
     /*
      * @var string
      * 
@@ -65,26 +74,12 @@ class User {
      * 
      * @ORM\Column(name= "updated_at " , type="datetime", nullable = false)
      */
-    private $updatedAt;
-
-    /*
-     * @var boolean
-     * 
-     * @ORM\Column(name= "updated_at " , type="boolean", nullable = false)
-     */
-    private $active;
-
-    /*
-     * @var string
-     * 
-     * @ORM\Column(name= "activation_key" , type="string", nullable = false)
-     */
-    private $activationkey;
+    private $updatedAt; 
 
     /*
      * @var \DateTime
      * 
-     * @ORM\Column(name= "createdAt" , type="datetime", nullable = false)
+     * @ORM\Column(name= "created_at" , type="datetime", nullable = false)
      */
     private $createdAt;
 
@@ -112,7 +107,7 @@ class User {
         return $this->id;
     }
 
-    function getNome() {
+   public function getNome() {
         return $this->nome;
     }
 
@@ -133,7 +128,7 @@ class User {
         return $this;
     }
 
-    function setNome($nome) {
+    public function setNome($nome) {
         $this->nome = $nome;
         return $this;
     }
@@ -182,7 +177,7 @@ class User {
      * @ORM\prePersist
      */
 
-    function setUpdatedAt($updatedAt) {
+    function setUpdatedAt() {
         $this->updatedAt = new \DateTime("now");
         return $this;
     }
@@ -192,8 +187,9 @@ class User {
         return $this;
     }
 
-    function setCreatedAt($createdAt) {
-        $this->createdAt = new \DateTime("now");;
+    function setCreatedAt() {
+        $this->createdAt = new \DateTime("now");
+        ;
         return $this;
     }
 

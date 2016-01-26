@@ -39,7 +39,9 @@ class IndexController extends AbstractActionController {
     }
 
     public function listarAction() {
+        
         $em = $this->getServiceLocator()->get("Doctrine\ORM\EntityManager");
+        
         $lista = $em->getRepository("SONUser\Entity\User")->findAll();
         return new ViewModel(array('lista' => $lista));
     }
