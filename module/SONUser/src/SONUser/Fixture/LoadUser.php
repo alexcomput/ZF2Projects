@@ -2,8 +2,8 @@
 
 namespace SONUser\Fixture;
 
-  use Doctrine\Common\DataFixtures\FixtureInterface;
-    Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 use SONUser\Entity\User;
 
 class LoadUser implements FixtureInterface
@@ -11,7 +11,8 @@ class LoadUser implements FixtureInterface
  /*
   * @param ObjectManager $manager
   */
-    public function load(ObjectManager $manager) {
+    public function load(ObjectManager $manager) 
+    {
         $user = new User();
         $user->setNome("Alex Sandro")
                 ->setEmail("alexcomput")

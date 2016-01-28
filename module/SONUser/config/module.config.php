@@ -16,6 +16,16 @@ return [
                     ]
                 ]
             ],
+            'sonuser-activate' => [
+                'type' => 'segment',
+                'options' => [
+                    'route' => '/register/activate[/:key]',
+                    'defaults' => [
+                        '__NAMESPACE__' => 'SONUser\Controller\Index',
+                        'action' => 'activate',
+                    ]
+                ]
+            ],
             'sonuser-listar' => [
                 'type' => 'Literal',
                 'options' => [

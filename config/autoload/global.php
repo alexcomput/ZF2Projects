@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Global Configuration Override
  *
@@ -10,7 +11,17 @@
  * control, so do not include passwords or other sensitive information in this
  * file.
  */
-
 return array(
-    // ...
+    'mail' => array(
+        'name' => 'smtp.google.com',
+        'host' => 'smtp.google.com',
+        'connection_class' => 'login',
+        'connection_config' => array(
+            'username' => 'alexcomput@gmail.com',
+            'password' => '123',
+            'ssl' => 'tls',
+            'port' => 465,
+            'from' => 'alexcomput@gmail.com'
+        )
+    )
 );

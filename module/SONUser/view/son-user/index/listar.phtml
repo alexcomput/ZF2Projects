@@ -3,16 +3,18 @@
 
 <table>
     <tr>
+        <th>Código</th>
         <th>NOME</th>
-        <th>CPF</th> 
+         <th>Email</th> 
         <th>EDITAR</th>
         <th>EXCLUIR</th>
     </tr>
     <?php foreach ($this->lista as $f):
         ?>
         <tr>
-            <td><?php echo $f->getNome(); ?></td>
             <td><?php echo $f->getId(); ?></td> 
+            <td><?php echo $f->getNome(); ?></td>
+            <td><?php echo $f->getEmail(); ?></td> 
             <td>Editar</td>
             <td>Excluir</td>
         </tr>
